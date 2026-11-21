@@ -33,10 +33,11 @@ document.querySelectorAll("[data-weight-tool]").forEach((tool) => {
   const update = () => {
     const lines = [];
     tool.querySelectorAll("input[data-var]").forEach((input) => {
-      document.documentElement.style.setProperty(input.dataset.var, input.value);
+      const value = input.value + (input.dataset.unit || "");
+      document.documentElement.style.setProperty(input.dataset.var, value);
       const out = input.closest("label").querySelector("output");
       if (out) out.textContent = input.value;
-      lines.push(`${input.dataset.var}: ${input.value};`);
+      lines.push(`${input.dataset.var}: ${value};`);
     });
     if (code) code.textContent = lines.join("  ");
   };

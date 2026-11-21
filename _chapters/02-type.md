@@ -29,12 +29,13 @@ The font has features most fonts lack: small caps, old-style figures, fractions,
 The font is variable, so it holds every weight from 400 to 700 in one file, not just a regular and a bold. Try it: the sliders change the weight of this page as you drag.
 
 <div class="weight-tool" data-weight-tool markdown="0">
-  <label>Text <input type="range" min="400" max="700" step="5" value="400" data-var="--text-weight"><output>400</output></label>
+  <label>Text <input type="range" min="400" max="700" step="5" value="460" data-var="--text-weight"><output>460</output></label>
   <label>Titles <input type="range" min="400" max="700" step="5" value="700" data-var="--title-weight"><output>700</output></label>
+  <label>Outline <input type="range" min="0" max="0.04" step="0.002" value="0.02" data-var="--title-stroke" data-unit="em"><output>0.02</output></label>
   <code></code>
 </div>
 
-To keep a setting, copy the line under the sliders into the `:root` block of `assets/css/book.css`. Text usually reads well between 400 and 480; light text on a dark page needs less weight than dark text on a light one.
+To keep a setting, copy the line under the sliders into the `:root` block of `assets/css/book.css`. Text usually reads well between 400 and 480; light text on a dark page needs less weight than dark text on a light one. Titles stop at 700, the heaviest weight the font has, so the outline adds weight beyond that by tracing each letter in the same color.
 
 ## Using other fonts
 
