@@ -1,0 +1,30 @@
+---
+layout: base
+title: Contents
+body_class: contents
+---
+{%- assign chapters = site.chapters | sort: "order" -%}
+
+<header class="running-head">
+  <a href="{{ '/' | relative_url }}" class="running-head__part">{{ site.title }}</a>
+  <span class="running-head__folio">{{ chapters | size }} parts</span>
+  <a href="{{ '/' | relative_url }}">Close</a>
+</header>
+
+<main class="toc">
+  <h1 class="toc__title">Contents</h1>
+  <ol class="toc__list">
+    {% for c in chapters %}
+    <li class="toc__item{% if c.numeral %} toc__item--part{% endif %}">
+      <a href="{{ c.url | relative_url }}">
+        {% if c.thumbnail %}<img class="toc__thumb" src="{{ c.thumbnail | relative_url }}" alt="">{% endif %}
+        <span class="toc__numeral">{{ c.numeral }}</span>
+        <span class="toc__name">{{ c.title }}</span>
+        {% if c.byline %}<span class="toc__byline">{{ c.byline }}</span>{% endif %}
+      </a>
+    </li>
+    {% endfor %}
+  </ol>
+</main>
+
+{% include footer.html %}

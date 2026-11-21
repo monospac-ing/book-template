@@ -1,0 +1,65 @@
+---
+layout: base
+body_class: chapter
+---
+{%- assign chapters = site.chapters | sort: "order" -%}
+{%- assign total = chapters | size -%}
+{%- for c in chapters -%}
+  {%- if c.url == page.url -%}
+    {%- assign i = forloop.index0 -%}
+    {%- assign position = forloop.index -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- assign prev_i = i | minus: 1 -%}
+{%- assign next_i = i | plus: 1 -%}
+{%- if prev_i >= 0 -%}{%- assign prev = chapters[prev_i] -%}{%- endif -%}
+{%- if next_i < total -%}{%- assign next = chapters[next_i] -%}{%- endif -%}
+
+<header class="running-head">
+  <a href="{{ '/contents.html' | relative_url }}" class="running-head__part">
+    {% if page.numeral %}{{ page.numeral }}. {% endif %}{{ page.title }}
+  </a>
+  <span class="running-head__folio">{{ position }} / {{ total }}</span>
+  <a href="{{ '/contents.html' | relative_url }}">Contents</a>
+</header>
+
+<main class="text">
+  <header class="text__head">
+    {% if page.numeral %}<p class="text__numeral">{{ page.label | default: 'Part' }} {{ page.numeral }}</p>{% endif %}
+    <h1 class="text__title">{{ page.title }}</h1>
+    {% if page.byline %}<p class="text__byline">{{ page.byline }}</p>{% endif %}
+  </header>
+
+  {% if page.image %}
+  <figure class="text__figure">
+    <img src="{{ page.image | relative_url }}" alt="{{ page.image_alt }}">
+    {% if page.image_caption %}<figcaption>{{ page.image_caption }}</figcaption>{% endif %}
+  </figure>
+  {% endif %}
+
+  <div class="text__body">
+    {{ content }}
+  </div>
+</main>
+
+<nav class="turn" aria-label="Chapter navigation">
+  {% if prev %}
+  <a class="turn__prev" href="{{ prev.url | relative_url }}" rel="prev">
+    <span class="turn__label">Previous</span>
+    <span class="turn__title">{{ prev.title }}</span>
+  </a>
+  {% else %}
+  <a class="turn__prev" href="{{ '/' | relative_url }}" rel="prev">
+    <span class="turn__label">Back to</span>
+    <span class="turn__title">Cover</span>
+  </a>
+  {% endif %}
+  {% if next %}
+  <a class="turn__next" href="{{ next.url | relative_url }}" rel="next">
+    <span class="turn__label">Next part</span>
+    <span class="turn__title">{{ next.title }}</span>
+  </a>
+  {% endif %}
+</nav>
+
+{% include footer.html %}

@@ -1,0 +1,30 @@
+---
+layout: base
+body_class: cover
+---
+{%- assign chapters = site.chapters | sort: "order" -%}
+{%- assign first = chapters | first -%}
+
+<header class="cover__top">
+  <a href="{{ '/contents.html' | relative_url }}">Contents</a>
+  {% if site.publisher_url != "" and site.publisher_url %}<a href="{{ site.publisher_url }}">{{ site.publisher }}</a>{% else %}<span>{{ site.publisher }}</span>{% endif %}
+</header>
+
+<main class="cover__main">
+  <h1 class="cover__title">
+    {% assign words = site.title | split: " " %}
+    {% for w in words %}<span>{{ w }}</span>{% endfor %}
+  </h1>
+  <hr class="cover__rule">
+  <p class="cover__subtitle">{{ site.subtitle }}</p>
+  <p class="cover__author">{{ site.author }}</p>
+</main>
+
+<nav class="turn turn--cover" aria-label="Start reading">
+  {% if first %}
+  <a class="turn__next" href="{{ first.url | relative_url }}" rel="next">
+    <span class="turn__label">Begin</span>
+    <span class="turn__title">{{ first.title }}</span>
+  </a>
+  {% endif %}
+</nav>

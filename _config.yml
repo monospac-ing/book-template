@@ -1,0 +1,44 @@
+# ─────────────────────────────────────────────
+#  Book settings — edit these first
+# ─────────────────────────────────────────────
+title: "A Book in Parts"
+subtitle: "A template for publishing long-form writing on the open web"
+author: "Author Name"
+publisher: "Publisher Name"
+publisher_url: ""          # optional, e.g. https://example.com
+year: 2026
+description: "A long-form text, published as a website, one part per page."
+lang: en
+
+# Accent color used for links and the cover rule. Any CSS color works.
+accent: "#d7261e"
+
+# If the site lives at username.github.io/repo-name, set baseurl to "/repo-name".
+# If it lives at username.github.io (or a custom domain), leave it empty.
+baseurl: "/book-template"
+url: "https://monospac-ing.github.io"
+
+# ─────────────────────────────────────────────
+#  Chapters — one Markdown file per part in _chapters/
+#  Pages are ordered by the `order` number in each file.
+# ─────────────────────────────────────────────
+collections:
+  chapters:
+    output: true
+    permalink: /:name.html     # 01-writing.md → /01-writing.html
+
+defaults:
+  - scope:
+      path: ""
+      type: chapters
+    values:
+      layout: chapter
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  smart_quotes: ["lsquo", "rsquo", "ldquo", "rdquo"]
+
+exclude:
+  - README.md
+  - tools/
