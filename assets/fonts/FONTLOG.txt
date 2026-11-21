@@ -1,10 +1,11 @@
-Monospacing Serif — modified version of Common Serif
-====================================================
+Common Revised — modified version of Common Serif
+=================================================
 
-Monospacing Serif is a Modified Version of Common Serif 1.049 by Stefan Peev
+Common Revised is a Modified Version of Common Serif 1.049 by Stefan Peev
 (https://github.com/StefanPeev/Common-Serif), released under the SIL Open Font
 License 1.1. "Common Serif" is a Reserved Font Name, so this version uses a
-different name. All copyright and license information is unchanged.
+different name. "Common Revised" keeps the family's origin visible without using
+the reserved name. All copyright and license information is unchanged.
 
 2026-11-21 (monospac-ing)
 - Built variable fonts (weight axis 400–700, roman and italic) from the

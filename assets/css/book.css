@@ -3,19 +3,19 @@
    Change the variables in :root first.
    ───────────────────────────────────────────── */
 
-/* Monospacing Serif: a variable build of Common Serif by Stefan Peev (SIL Open Font
+/* Common Revised: a variable build of Common Serif by Stefan Peev (SIL Open Font
    License), with every weight from 400 to 700 in one file per style. It is renamed
    because "Common Serif" is a Reserved Font Name; FONTLOG.txt lists the changes. */
 @font-face {
-  font-family: "Monospacing Serif";
-  src: url("../fonts/MonospacingSerif-VF.woff2") format("woff2");
+  font-family: "Common Revised";
+  src: url("../fonts/CommonRevised-VF.woff2") format("woff2");
   font-weight: 400 700;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: "Monospacing Serif";
-  src: url("../fonts/MonospacingSerif-Italic-VF.woff2") format("woff2");
+  font-family: "Common Revised";
+  src: url("../fonts/CommonRevised-Italic-VF.woff2") format("woff2");
   font-weight: 400 700;
   font-style: italic;
   font-display: swap;
@@ -28,8 +28,8 @@
   --rule: #141414;
   --accent: #d7261e;          /* overridden by `accent` in _config.yml */
 
-  --display: "Monospacing Serif", "Libertinus Serif", Georgia, serif;   /* titles */
-  --text: "Monospacing Serif", "Libertinus Serif", Georgia, serif;      /* reading text */
+  --display: "Common Revised", "Libertinus Serif", Georgia, serif;   /* titles */
+  --text: "Common Revised", "Libertinus Serif", Georgia, serif;      /* reading text */
 
   /* The font is variable: any weight from 400 to 700 works, not just 400 and 700. */
   --text-weight: 460;         /* reading text */

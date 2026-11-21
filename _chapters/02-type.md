@@ -7,7 +7,7 @@ image: /assets/images/sample-2.png
 image_alt: Dithered vertical bars stepping from dark to light
 ---
 
-One typeface carries the whole design: Monospacing Serif, a variable build of Common Serif by Stefan Peev, which is itself built on Libertinus Serif. Titles are set in its bold, the reading text in its regular and italic, and the small labels around the page in its true small caps rather than shrunken capitals.
+One typeface carries the whole design: Common Revised, a variable build of Common Serif by Stefan Peev, which is itself built on Libertinus Serif. Titles are set in its bold, the reading text in its regular and italic, and the small labels around the page in its true small caps rather than shrunken capitals.
 
 ## Where to change things
 
