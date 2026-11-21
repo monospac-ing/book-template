@@ -20,6 +20,7 @@ body_class: chapter
     {% if page.numeral %}{{ page.numeral }}. {% endif %}{{ page.title }}
   </a>
   <span class="running-head__folio">{{ position }} / {{ total }}</span>
+  {% include face-switch.html %}
   <a href="{{ '/contents.html' | relative_url }}">Contents</a>
 </header>
 

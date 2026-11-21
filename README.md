@@ -20,7 +20,7 @@ The site appears at the address shown on the Pages settings screen after a minut
 | `contents.html` | The table of contents, built from `_chapters/` |
 | `_layouts/chapter.html` | The page template: running head, title, text, page turn |
 | `assets/css/book.css` | All styles. Start with the variables under `:root` |
-| `assets/fonts/` | Monospacing Serif, a variable version of Common Serif (SIL Open Font License) |
+| `assets/fonts/` | Monospacing Serif and Common Sans, variable web builds (SIL Open Font License) |
 | `tools/dither.py` | Dither an image to 1-bit for chapter images |
 
 ## A chapter file
@@ -41,3 +41,5 @@ Text in Markdown.
 ## Credits
 
 Font: Monospacing Serif, a Modified Version of [Common Serif](https://github.com/StefanPeev/Common-Serif) 1.049 by Stefan Peev, under the SIL Open Font License 1.1. It is a variable build (weight 400–700) with the apostrophe positioning fixed and a Latin subset; it is renamed because "Common Serif" is a Reserved Font Name. See `assets/fonts/FONTLOG.txt` for the changes and `assets/fonts/OFL.txt` for the license.
+
+Sans view: [Common Sans](https://github.com/StefanPeev/Common-Sans) by Stefan Peev, under the SIL Open Font License 1.1, built as a variable font (weight 100–900, width 75–125). Readers switch between Serif and Sans in the header; the choice is kept in their browser. See `assets/fonts/FONTLOG-Common-Sans.txt` for the build notes and known limits.

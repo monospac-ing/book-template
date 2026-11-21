@@ -8,6 +8,7 @@ body_class: contents
 <header class="running-head">
   <a href="{{ '/' | relative_url }}" class="running-head__part">{{ site.title }}</a>
   <span class="running-head__folio">{{ chapters | size }} parts</span>
+  {% include face-switch.html %}
   <a href="{{ '/' | relative_url }}">Close</a>
 </header>
 

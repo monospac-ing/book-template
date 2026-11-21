@@ -1,0 +1,22 @@
+Common Sans — variable web build
+================================
+
+A Modified Version of Common Sans by Stefan Peev
+(https://github.com/StefanPeev/Common-Sans), released under the SIL Open Font
+License 1.1 (see OFL-Common-Sans.txt). Common Sans declares no Reserved Font
+Name, so this build keeps the name. All copyright and license information is
+unchanged.
+
+2026-11-21 (monospac-ing)
+- Built a variable font (weight 100–900, width 75–125) from the project's nine
+  UFO masters and designspace file with fontmake 3.12. The upstream project
+  does not publish compiled fonts in its repository.
+- Removed the section sign (§): its outline in the three Thin masters has a
+  different point structure from the other six masters, so it cannot
+  interpolate. Text containing § falls back to the next font in the CSS stack.
+- Subset to Latin (Basic, Latin-1, Extended-A, punctuation), keeping all
+  OpenType layout features, and converted to WOFF2.
+
+Known limits of the upstream sources (draft, per the project README):
+- Kerning: only 3–9 kerning pairs per master.
+- No italic.
