@@ -1,3 +1,31 @@
+Monospacing Serif — modified version of Common Serif
+====================================================
+
+Monospacing Serif is a Modified Version of Common Serif 1.049 by Stefan Peev
+(https://github.com/StefanPeev/Common-Serif), released under the SIL Open Font
+License 1.1. "Common Serif" is a Reserved Font Name, so this version uses a
+different name. All copyright and license information is unchanged.
+
+2026-11-21 (monospac-ing)
+- Built variable fonts (weight axis 400–700, roman and italic) from the
+  project's UFO masters and designspace files with fontmake 3.12.
+- Removed the markClass rules that declared quoteright and quoteleft to be
+  combining marks. In running text they attached the apostrophe (’) to the
+  previous letter as an accent. Precomposed letters such as ď, ľ, ť are unchanged.
+- Removed the hand-written kern feature from the Regular and Bold masters so
+  kerning is built from kerning.plist, matching the released 1.049 fonts.
+- Italic master: tightened the spacing of g (shifted 29 units left, advance
+  477 → 414) to match the released 1.049 Italic.
+- Subset to Latin (Basic, Latin-1, Extended-A, punctuation), keeping all
+  OpenType layout features, and converted to WOFF2.
+
+Verified against the released static fonts at 400, 500, 600 and 700, roman and
+italic: identical glyphs, advances and kerning apart from the apostrophe fix
+(and 1-unit rounding in ½).
+
+------------------------------------------------------------------------------
+Original FONTLOG follows.
+
 FONTLOG for Common Serif
 ------------------------
 

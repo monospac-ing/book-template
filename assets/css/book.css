@@ -3,29 +3,21 @@
    Change the variables in :root first.
    ───────────────────────────────────────────── */
 
-/* Common Serif by Stefan Peev (SIL Open Font License), a fork of Libertinus Serif.
-   These are the complete fonts, converted to WOFF2 without changes. Do not subset
-   them under the same name: "Common Serif" is a Reserved Font Name, so a subset
-   would have to be renamed (see OFL-Common-Serif.txt). */
+/* Monospacing Serif: a variable build of Common Serif by Stefan Peev (SIL Open Font
+   License), with every weight from 400 to 700 in one file per style. It is renamed
+   because "Common Serif" is a Reserved Font Name; FONTLOG.txt lists the changes. */
 @font-face {
-  font-family: "Common Serif";
-  src: url("../fonts/CommonSerif-Regular.woff2") format("woff2");
-  font-weight: 400;
+  font-family: "Monospacing Serif";
+  src: url("../fonts/MonospacingSerif-VF.woff2") format("woff2");
+  font-weight: 400 700;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: "Common Serif";
-  src: url("../fonts/CommonSerif-Italic.woff2") format("woff2");
-  font-weight: 400;
+  font-family: "Monospacing Serif";
+  src: url("../fonts/MonospacingSerif-Italic-VF.woff2") format("woff2");
+  font-weight: 400 700;
   font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Common Serif";
-  src: url("../fonts/CommonSerif-Bold.woff2") format("woff2");
-  font-weight: 700;
-  font-style: normal;
   font-display: swap;
 }
 
@@ -36,8 +28,12 @@
   --rule: #141414;
   --accent: #d7261e;          /* overridden by `accent` in _config.yml */
 
-  --display: "Common Serif", "Libertinus Serif", Georgia, serif;   /* titles */
-  --text: "Common Serif", "Libertinus Serif", Georgia, serif;      /* reading text */
+  --display: "Monospacing Serif", "Libertinus Serif", Georgia, serif;   /* titles */
+  --text: "Monospacing Serif", "Libertinus Serif", Georgia, serif;      /* reading text */
+
+  /* The font is variable: any weight from 400 to 700 works, not just 400 and 700. */
+  --text-weight: 400;         /* reading text */
+  --title-weight: 700;        /* cover, part and contents titles */
 
   --measure: 33em;            /* line length of the reading column */
   --body-size: clamp(1.125rem, 1rem + 0.5vw, 1.375rem);
@@ -58,15 +54,12 @@ body {
   color: var(--ink);
   font-family: var(--text);
   font-size: var(--body-size);
+  font-weight: var(--text-weight);
   line-height: var(--leading);
   font-kerning: normal;
   font-variant-ligatures: common-ligatures;
   font-variant-numeric: oldstyle-nums proportional-nums;
   font-synthesis: none;       /* no fake bold italic: only real styles are used */
-  /* Common Serif 1.049 attaches the curly apostrophe (’) to the letter before it as if it
-     were an accent, pushing it under that letter. Turning off mark positioning fixes it.
-     Accented letters such as é or ř are single characters and are unaffected. */
-  font-feature-settings: "mark" 0;
   hanging-punctuation: first;
 }
 
@@ -78,7 +71,7 @@ img { max-width: 100%; height: auto; display: block; }
 .running-head, .cover__top, .turn__label, .colophon-line,
 .text__numeral, .toc__numeral, .running-head__folio {
   font-family: var(--text);
-  font-weight: 400;
+  font-weight: var(--text-weight);
   font-size: 1rem;
   letter-spacing: 0.08em;
   font-variant-caps: all-small-caps;      /* the font's real small caps (c2sc + smcp) */
@@ -110,7 +103,7 @@ img { max-width: 100%; height: auto; display: block; }
 .cover__title {
   margin: 0;
   font-family: var(--display);
-  font-weight: 700;
+  font-weight: var(--title-weight);
   font-size: clamp(3rem, min(18vw, 14vh), 14rem);   /* fits the cover in one screen; book.js shrinks it if a long word would overflow */
   line-height: 0.9;
   letter-spacing: -0.025em;
@@ -133,7 +126,7 @@ img { max-width: 100%; height: auto; display: block; }
 .cover__author {
   margin: 1rem 0 0;
   font-family: var(--display);
-  font-weight: 400;
+  font-weight: var(--text-weight);
   font-size: clamp(1.5rem, 1rem + 2vw, 2.75rem);
   font-variant-caps: all-small-caps;
   letter-spacing: 0.06em;
@@ -153,7 +146,7 @@ img { max-width: 100%; height: auto; display: block; }
 .text__title {
   margin: 0;
   font-family: var(--display);
-  font-weight: 700;
+  font-weight: var(--title-weight);
   font-size: clamp(2.5rem, 1.75rem + 3.5vw, 4.75rem);
   line-height: 0.95;
   letter-spacing: -0.02em;
@@ -176,14 +169,15 @@ img { max-width: 100%; height: auto; display: block; }
 .text__body h2 {
   margin: 3rem 0 1rem;
   font-family: var(--display);
-  font-weight: 400;
+  font-weight: var(--text-weight);
   font-size: 1.15em;
   line-height: 1.2;
   font-variant-caps: all-small-caps;
   letter-spacing: 0.06em;
 }
 .text__body h2 + p { text-indent: 0; }
-.text__body h3 { margin: 2rem 0 0.5rem; font-size: 1em; font-style: italic; font-weight: 400; }
+.text__body h3 { margin: 2rem 0 0.5rem; font-size: 1em; font-style: italic; font-weight: var(--text-weight); }
+strong, b { font-weight: max(700, var(--text-weight)); }
 .text__body blockquote {
   margin: 1.5rem 0;
   padding-left: 1.5em;
@@ -229,7 +223,7 @@ sup a, a.footnote, .reversefootnote { text-decoration: none; color: var(--accent
 .turn__title {
   display: block;
   font-family: var(--display);
-  font-weight: 700;
+  font-weight: var(--title-weight);
   font-size: clamp(1.5rem, 1rem + 2vw, 2.5rem);
   line-height: 1;
   letter-spacing: -0.01em;
@@ -246,7 +240,7 @@ sup a, a.footnote, .reversefootnote { text-decoration: none; color: var(--accent
 .toc__title {
   margin: 0 0 2rem;
   font-family: var(--display);
-  font-weight: 700;
+  font-weight: var(--title-weight);
   font-size: clamp(3rem, 2rem + 5vw, 7rem);
   line-height: 0.9;
   letter-spacing: -0.025em;
@@ -273,7 +267,7 @@ sup a, a.footnote, .reversefootnote { text-decoration: none; color: var(--accent
   grid-column: 2;
   grid-row: 1;
   font-family: var(--display);
-  font-weight: 700;
+  font-weight: var(--title-weight);
   font-size: clamp(1.5rem, 1rem + 1.75vw, 2.5rem);
   line-height: 1.05;
   letter-spacing: -0.01em;
@@ -291,6 +285,25 @@ sup a, a.footnote, .reversefootnote { text-decoration: none; color: var(--accent
 }
 .colophon-line a { text-decoration: none; }
 
+/* ── Weight tool (Part II) ───────────────── */
+.weight-tool {
+  margin: 2rem 0;
+  padding: 1.25rem 1.25rem 1rem;
+  border: 1px solid var(--rule);
+}
+.weight-tool label {
+  display: grid;
+  grid-template-columns: 7rem 1fr 3rem;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.08em;
+}
+.weight-tool output { text-align: right; font-variant-numeric: lining-nums tabular-nums; }
+.weight-tool input[type="range"] { width: 100%; accent-color: var(--accent); }
+.weight-tool code { display: block; margin-top: 0.5rem; font-size: 0.8em; color: var(--muted); white-space: normal; }
+
 /* ── Phones ───────────────────────────────── */
 @media (max-width: 540px) {
   .running-head__folio { display: none; }          /* keep the head to one line */
@@ -303,6 +316,7 @@ sup a, a.footnote, .reversefootnote { text-decoration: none; color: var(--accent
   .toc__item a { grid-template-columns: 2.5rem 1fr auto; }
   .turn a { padding-bottom: 1.5rem; }
   .turn__title { font-size: 1.375rem; }
+  .weight-tool label { grid-template-columns: 3.75rem 1fr 2.5rem; gap: 0.75rem; }
 }
 
 /* ── Tablets ──────────────────────────────── */

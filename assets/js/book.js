@@ -25,3 +25,21 @@ function fitCoverTitle() {
 }
 document.fonts.ready.then(fitCoverTitle);
 window.addEventListener("resize", fitCoverTitle);
+
+// Weight tool: sliders that change a CSS variable live, e.g. --text-weight.
+// Changes last only while the page is open; copy the line shown into book.css to keep them.
+document.querySelectorAll("[data-weight-tool]").forEach((tool) => {
+  const code = tool.querySelector("code");
+  const update = () => {
+    const lines = [];
+    tool.querySelectorAll("input[data-var]").forEach((input) => {
+      document.documentElement.style.setProperty(input.dataset.var, input.value);
+      const out = input.closest("label").querySelector("output");
+      if (out) out.textContent = input.value;
+      lines.push(`${input.dataset.var}: ${input.value};`);
+    });
+    if (code) code.textContent = lines.join("  ");
+  };
+  tool.addEventListener("input", update);
+  update();
+});

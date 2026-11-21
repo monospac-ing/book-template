@@ -7,7 +7,7 @@ image: /assets/images/sample-2.png
 image_alt: Dithered vertical bars stepping from dark to light
 ---
 
-One typeface carries the whole design: Common Serif, by Stefan Peev, a revival built on Libertinus Serif. Titles are set in its bold, the reading text in its regular and italic, and the small labels around the page in its true small caps rather than shrunken capitals.
+One typeface carries the whole design: Monospacing Serif, a variable build of Common Serif by Stefan Peev, which is itself built on Libertinus Serif. Titles are set in its bold, the reading text in its regular and italic, and the small labels around the page in its true small caps rather than shrunken capitals.
 
 ## Where to change things
 
@@ -22,7 +22,19 @@ The accent color lives in `_config.yml`, so it can change without touching the s
 
 ## OpenType features
 
-Common Serif has features most fonts lack: small caps, old-style figures, fractions, superior figures for notes, and nine stylistic sets. The stylesheet turns some on with `font-variant` properties. Old-style figures sit in the running text, like 1928 or 2026, and the note numbers use the font's own superiors.[^1]
+The font has features most fonts lack: small caps, old-style figures, fractions, superior figures for notes, and nine stylistic sets. The stylesheet turns some on with `font-variant` properties. Old-style figures sit in the running text, like 1928 or 2026, and the note numbers use the font's own superiors.[^1]
+
+## Weight
+
+The font is variable, so it holds every weight from 400 to 700 in one file, not just a regular and a bold. Try it: the sliders change the weight of this page as you drag.
+
+<div class="weight-tool" data-weight-tool markdown="0">
+  <label>Text <input type="range" min="400" max="700" step="5" value="400" data-var="--text-weight"><output>400</output></label>
+  <label>Titles <input type="range" min="400" max="700" step="5" value="700" data-var="--title-weight"><output>700</output></label>
+  <code></code>
+</div>
+
+To keep a setting, copy the line under the sliders into the `:root` block of `assets/css/book.css`. Text usually reads well between 400 and 480; light text on a dark page needs less weight than dark text on a light one.
 
 ## Using other fonts
 
