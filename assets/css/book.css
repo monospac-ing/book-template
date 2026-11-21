@@ -21,17 +21,6 @@
   font-display: swap;
 }
 
-/* Common Sans by Stefan Peev (SIL Open Font License): a variable build with weight
-   100–900 and width 75–125. Only downloaded when a reader switches to Sans. */
-@font-face {
-  font-family: "Common Sans";
-  src: url("../fonts/CommonSans-VF.woff2") format("woff2");
-  font-weight: 100 900;
-  font-stretch: 75% 125%;
-  font-style: normal;
-  font-display: swap;
-}
-
 :root {
   --paper: #f3f0e8;
   --ink: #141414;
@@ -51,14 +40,6 @@
   --leading: 1.5;
   --gutter: clamp(1rem, 4vw, 2.5rem);
 }
-
-/* Sans view: switched with the Serif / Sans buttons in the header */
-:root[data-face="sans"] {
-  --display: "Common Sans", "Helvetica Neue", Arial, sans-serif;
-  --text: "Common Sans", "Helvetica Neue", Arial, sans-serif;
-  --leading: 1.45;
-}
-:root[data-face="sans"] body { font-synthesis: style; }   /* Common Sans has no italic: allow a slanted roman */
 
 *, *::before, *::after { box-sizing: border-box; }
 
@@ -100,35 +81,16 @@ img { max-width: 100%; height: auto; display: block; }
 /* ── Running head ─────────────────────────── */
 .running-head, .cover__top {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto auto auto;
+  grid-template-columns: minmax(0, 1fr) auto auto;
   gap: 1rem 1.5rem;
   align-items: baseline;
   padding: 1rem var(--gutter);
   border-bottom: 1px solid var(--rule);
 }
-.cover__top { grid-template-columns: 1fr auto auto; border-bottom: 0; }
+.cover__top { grid-template-columns: 1fr auto; border-bottom: 0; }
 .running-head a, .cover__top a { text-decoration: none; }
 .running-head__folio { color: var(--muted); }
 .running-head__part { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
-
-/* Serif / Sans switch */
-.face-switch { display: inline-flex; gap: 0.15em; }
-.face-switch button {
-  font: inherit;
-  letter-spacing: inherit;
-  font-variant-caps: inherit;
-  color: var(--muted);
-  background: none;
-  border: 0;
-  padding: 0 0.2em;
-  cursor: pointer;
-}
-.face-switch button[aria-pressed="true"] {
-  color: var(--ink);
-  text-decoration: underline;
-  text-decoration-thickness: 0.06em;
-  text-underline-offset: 0.25em;
-}
 
 /* ── Cover ─────────────────────────────────── */
 .cover__main {
@@ -345,7 +307,7 @@ sup a, a.footnote, .reversefootnote { text-decoration: none; color: var(--accent
 /* ── Phones ───────────────────────────────── */
 @media (max-width: 540px) {
   .running-head__folio { display: none; }          /* keep the head to one line */
-  .running-head { grid-template-columns: minmax(0, 1fr) auto auto; gap: 1rem; }
+  .running-head { grid-template-columns: minmax(0, 1fr) auto; }
   .text { padding-top: 2.5rem; }
   .text__head { margin-bottom: 2rem; }
   .text__figure { margin-left: calc(-1 * var(--gutter)); margin-right: calc(-1 * var(--gutter)); }

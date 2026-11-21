@@ -43,18 +43,3 @@ document.querySelectorAll("[data-weight-tool]").forEach((tool) => {
   tool.addEventListener("input", update);
   update();
 });
-
-// Serif / Sans switch. The choice is kept in this browser so it carries
-// across pages; without storage the page simply starts in Serif each time.
-function setFace(face) {
-  document.documentElement.dataset.face = face;
-  document.querySelectorAll(".face-switch button").forEach((button) => {
-    button.setAttribute("aria-pressed", String(button.dataset.face === face));
-  });
-  try { localStorage.setItem("face", face); } catch (e) {}
-  fitCoverTitle();
-}
-document.querySelectorAll(".face-switch button").forEach((button) => {
-  button.addEventListener("click", () => setFace(button.dataset.face));
-});
-setFace(document.documentElement.dataset.face || "serif");

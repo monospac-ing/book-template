@@ -7,7 +7,6 @@ body_class: cover
 
 <header class="cover__top">
   <a href="{{ '/contents.html' | relative_url }}">Contents</a>
-  {% include face-switch.html %}
   {% if site.publisher_url != "" and site.publisher_url %}<a href="{{ site.publisher_url }}">{{ site.publisher }}</a>{% else %}<span>{{ site.publisher }}</span>{% endif %}
 </header>
 
