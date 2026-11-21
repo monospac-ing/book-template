@@ -20,7 +20,7 @@ The site appears at the address shown on the Pages settings screen after a minut
 | `contents.html` | The table of contents, built from `_chapters/` |
 | `_layouts/chapter.html` | The page template: running head, title, text, page turn |
 | `assets/css/book.css` | All styles. Start with the variables under `:root` |
-| `assets/fonts/` | Archivo and EB Garamond (SIL Open Font License) |
+| `assets/fonts/` | Common Serif (SIL Open Font License) |
 | `tools/dither.py` | Dither an image to 1-bit for chapter images |
 
 ## A chapter file
@@ -40,4 +40,4 @@ Text in Markdown.
 
 ## Credits
 
-Fonts: Archivo by Omnibus-Type and EB Garamond by Georg Duffner and Octavio Pardo, both under the SIL Open Font License 1.1 (see `assets/fonts/`).
+Font: [Common Serif](https://github.com/StefanPeev/Common-Serif) by Stefan Peev, under the SIL Open Font License 1.1 (see `assets/fonts/`). "Common Serif" is a Reserved Font Name: the files here are the complete fonts converted to WOFF2. A subset or other modified version must be renamed.
