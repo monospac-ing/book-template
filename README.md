@@ -20,7 +20,7 @@ The site appears at the address shown on the Pages settings screen after a minut
 | `contents.html` | The table of contents, built from `_chapters/` |
 | `_layouts/chapter.html` | The page template: running head, title, text, page turn |
 | `assets/css/book.css` | All styles. Start with the variables under `:root` |
-| `assets/fonts/` | Common Revised, a variable version of Common Serif (SIL Open Font License) |
+| `assets/fonts/` | Newsreader, variable (SIL Open Font License) |
 | `tools/dither.py` | Dither an image to 1-bit for chapter images |
 
 ## A chapter file
@@ -40,4 +40,4 @@ Text in Markdown.
 
 ## Credits
 
-Font: Common Revised, a Modified Version of [Common Serif](https://github.com/StefanPeev/Common-Serif) 1.049 by Stefan Peev, under the SIL Open Font License 1.1. It is a variable build (weight 400–700) with the apostrophe positioning fixed and a Latin subset; it is renamed because "Common Serif" is a Reserved Font Name. See `assets/fonts/FONTLOG.txt` for the changes and `assets/fonts/OFL.txt` for the license.
+Font: [Newsreader](https://github.com/productiontype/Newsreader) by Production Type, from Google Fonts, under the SIL Open Font License 1.1. The variable fonts (weight 200–800, optical size 6–72) are subset to Latin; see `assets/fonts/FONTLOG.txt` and `assets/fonts/OFL.txt`.
